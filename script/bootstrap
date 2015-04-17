@@ -26,6 +26,19 @@ fail () {
   exit
 }
 
+install_dependencies () {
+
+  if [ -h /bin/zsh ] || [ -f /bin/zsh ]
+  then
+    if [ -d ~/.oh-my-zsh ]
+    then
+      printf "Removing old oh-my-zsh config \n"
+      rm -rf ~/.oh-my-zsh
+    fi
+    curl -L https://raw.github.com/Rodjers/oh-my-zsh/master/tools/install.sh | /bin/zsh
+  fi
+}
+
 setup_gitconfig () {
   if ! [ -f git/gitconfig.symlink ]
   then
@@ -120,6 +133,7 @@ install_dotfiles () {
   done
 }
 
+install_dependencies
 setup_gitconfig
 install_dotfiles
 
