@@ -1,5 +1,6 @@
 URxvt.depth: 32
 URxvt.background: [80]#000000
 URxvt.scrollBar: false
-URxvt.font: -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+! URxvt.font: -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+Uxvt*font: xft:Terminess Powerline:size=12
 URxvt.foreground: white
