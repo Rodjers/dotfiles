@@ -30,13 +30,20 @@ install_dependencies () {
 
   if [ -h /bin/zsh ] || [ -f /bin/zsh ]
   then
-    if [ -d ~/.oh-my-zsh ]
+    if [ ! -d ~/.oh-my-zsh ]
     then
       printf "Removing old oh-my-zsh config \n"
-      rm -rf ~/.oh-my-zsh
+     # rm -rf ~/.oh-my-zsh
+      curl -L https://raw.github.com/Rodjers/oh-my-zsh/master/tools/install.sh | /bin/zsh
     fi
-    curl -L https://raw.github.com/Rodjers/oh-my-zsh/master/tools/install.sh | /bin/zsh
+
   fi
+}
+
+run_install_scripts () {
+
+  source $DOTFILES_ROOT/script/install
+
 }
 
 setup_gitconfig () {
@@ -55,7 +62,7 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" $DOTFILES_ROOT/git/gitconfig.symlink.example > $DOTFILES_ROOT/git/gitconfig.symlink
 
     success 'gitconfig'
   fi
@@ -134,6 +141,7 @@ install_dotfiles () {
 }
 
 install_dependencies
+run_install_scripts
 setup_gitconfig
 install_dotfiles
 

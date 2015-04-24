@@ -1,4 +1,4 @@
 syntax on
 set number
 " Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" filetype indent plugin on
