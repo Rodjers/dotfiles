@@ -1,11 +1,8 @@
-!URxvt*.depth: 32
+URxvt*.depth: 32
 URxvt*.background: [80]#000000
-UUxvt*.transparent: true
-URxvt*.shading: 20
 URxvt*.scrollBar: false
 !URxvt*.font: -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 URxvt*font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:bold:pixelsize=12
-URxvt*.foreground: white
 
 ! Solarized color scheme for the X Window System
 !
