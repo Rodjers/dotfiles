@@ -1,4 +1,10 @@
 syntax on
 set number
+set shiftwidth=2
+set tabstop=2
+set expandtab
+inoremap jk <ESC>
+nmap <C-j> o<ESC>k
+nmap <C-k> O<ESC>j
 " Wrap gitcommit file types at the appropriate length
 " filetype indent plugin on
