@@ -9,3 +9,4 @@ nmap <C-j> o<ESC>k
 nmap <C-k> O<ESC>j
 " Wrap gitcommit file types at the appropriate length
 " filetype indent plugin on
+" Ny kommentar
