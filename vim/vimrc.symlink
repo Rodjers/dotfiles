@@ -4,8 +4,10 @@ set number
 set shiftwidth=2
 set tabstop=2
 set expandtab
+set relativenumber
 inoremap jk <ESC>
 nmap <C-j> o<ESC>k
 nmap <C-k> O<ESC>j
+map <C-n> :NERDTreeToggle<CR>
 " Wrap gitcommit file types at the appropriate length
 " filetype indent plugin on
