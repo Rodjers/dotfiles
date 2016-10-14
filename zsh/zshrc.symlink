@@ -45,3 +45,14 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+export GRADLE_HOME=/opt/gradle-2.3
+export LANG=en_US.UTF-8
+export DEFAULT_USER=oddgeir
+export GOPATH=$HOME/Development/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/opt/apache-maven-3.3.9/bin
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/oddgeir/.sdkman"
+[[ -s "/Users/oddgeir/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/oddgeir/.sdkman/bin/sdkman-init.sh"

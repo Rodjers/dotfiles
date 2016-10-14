@@ -22,3 +22,6 @@
 [submodule "vim/vim.symlink/bundle/vim-surround"]
 	path = vim/vim.symlink/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
+[submodule "vim/vim.symlink/bundle/ansible-vim"]
+	path = vim/vim.symlink/bundle/ansible-vim
+	url = https://github.com/pearofducks/ansible-vim.git
