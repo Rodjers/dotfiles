@@ -4,10 +4,8 @@
 [hub]
         protocol = https
 [user]
-        name = Rodjers
+        name = Oddgeir Gitlestad
         email = oddgeir.gitlestad@gmail.com
-[credential]
-        helper = osxkeychain
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
