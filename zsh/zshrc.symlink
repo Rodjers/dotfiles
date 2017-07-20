@@ -42,7 +42,7 @@ function gitall () {git add .;git commit -m $1 ; git pull; git push;}
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow npm debian docker)
+plugins=(git git-flow npm debian docker nyan sudo)
 
 source $ZSH/oh-my-zsh.sh
 
