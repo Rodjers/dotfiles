@@ -45,6 +45,7 @@ function gitall () {git add .;git commit -m $1 ; git pull; git push;}
 plugins=(git git-flow npm debian docker nyan sudo wd osx)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.profile
 
 # Customize to your needs...
 . ~/.zshlocal
@@ -56,3 +57,6 @@ export PATH="$NPM_PACKAGES/bin:$PATH"
 # command
 unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
