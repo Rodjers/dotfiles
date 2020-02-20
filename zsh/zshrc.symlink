@@ -16,6 +16,10 @@ function gitall () {git add .;git commit -m $1 ; git pull; git push;}
 alias ufprod="ssh docker@\$(aws ec2 describe-instances --filters \"Name=tag:Name, Values=prod-Manager\" | jq -r '.Reservations[0].Instances[0].PublicIpAddress') -A"
 alias ufstage="ssh docker@\$(aws ec2 describe-instances --filters \"Name=tag:Name, Values=stage-Manager\" | jq -r '.Reservations[0].Instances[0].PublicIpAddress') -A"
 
+alias serverlog="docker exec -ti aip sh -c 'tail -n 1000 -f /var/log/wildfly/server.log'"
+alias closerlog="docker exec -ti aip sh -c 'tail -n 1000 -f /var/log/wildfly/debug-aip-ecom.log'"
+alias r6log="docker exec -ti aip sh -c 'tail -n 100 -f /var/log/wildfly/aip-r6.log'"
+
 function d-a () {docker exec -it $argv[1] bash;}
 
 function d-l () {
@@ -24,6 +28,20 @@ function d-l () {
 
 function d-p () {docker exec -it $argv[1] bash -c "puppet apply $argv[2]"}
 
+function deploy () {
+        app=${PWD##*/}
+        mvn -P altibox clean install
+        docker cp target/$app.war aip:/opt/wildfly/standalone/deployments
+        docker exec -ti aip bash -c "systemctl restart wildfly"
+        echo $app was deployed to puppet container and wildfly was restarted
+}
+
+function deploy-no-build () {
+        app=${PWD##*/}
+        docker cp target/$app.war aip:/opt/wildfly/standalone/deployments
+        docker exec -ti aip bash -c "systemctl restart wildfly"
+        echo $app was deployed to puppet container and wildfly was restarted
+}
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -54,7 +72,7 @@ function d-p () {docker exec -it $argv[1] bash -c "puppet apply $argv[2]"}
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow npm debian docker nyan sudo wd osx)
+plugins=(git git-flow npm debian docker nyan sudo wd osx extract)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.profile
@@ -73,8 +91,21 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Add Flutter SDK to the path
+export PATH="$PATH:$HOME/Development/sdks/flutter/bin"
+
+# Set Android sdk
+export ANDROID_HOME="/Users/oddgeir/Library/Android/sdk"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/oddgeir/Development/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/oddgeir/Development/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/oddgeir/Development/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/oddgeir/Development/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Add identities from keychain
+ssh-add -A
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
