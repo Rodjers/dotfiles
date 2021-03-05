@@ -5,7 +5,7 @@
         protocol = https
 [user]
         name = Oddgeir Gitlestad
-        email = oddgeir.gitlestad@gmail.com
+	email = oddgeir.gitestad@gmail.com
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote

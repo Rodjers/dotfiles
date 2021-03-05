@@ -78,7 +78,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.profile
 
 # Customize to your needs...
-. ~/.zshlocal
+#. ~/.zshlocal
 
 export NPM_PACKAGES="/home/oddgeir/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
@@ -92,10 +92,13 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add Flutter SDK to the path
-export PATH="$PATH:$HOME/Development/sdks/flutter/bin"
+export PATH="$PATH:$HOME/dev/sdks/flutter/bin"
+
+# Add dart to the path
+export PATH="$PATH:$HOME/dev/sdks/flutter/bin/cache/dart-sdk/bin"
 
 # Set Android sdk
-export ANDROID_HOME="/Users/oddgeir/Library/Android/sdk"
+#export ANDROID_HOME="/Users/oddgeir/Library/Android/sdk"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/oddgeir/Development/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/oddgeir/Development/google-cloud-sdk/path.zsh.inc'; fi
@@ -109,3 +112,7 @@ ssh-add -A
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/oddgeir/.sdkman"
+[[ -s "/home/oddgeir/.sdkman/bin/sdkman-init.sh" ]] && source "/home/oddgeir/.sdkman/bin/sdkman-init.sh"
