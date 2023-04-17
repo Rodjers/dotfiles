@@ -20,6 +20,10 @@ alias serverlog="docker exec -ti aip sh -c 'tail -n 1000 -f /var/log/wildfly/ser
 alias closerlog="docker exec -ti aip sh -c 'tail -n 1000 -f /var/log/wildfly/debug-aip-ecom.log'"
 alias r6log="docker exec -ti aip sh -c 'tail -n 100 -f /var/log/wildfly/aip-r6.log'"
 
+alias swapNexus='mv ~/.m2/settings.xml ~/.m2/tempSettings.xml && mv ~/.m2/settings.xml.backup ~/.m2/settings.xml && mv ~/.m2/tempSettings.xml ~/.m2/settings.xml.backup && printf "Now using: " && grep nexus ~/.m2/settings.xml -m 1 | cut -c18- | rev | cut -c7- | rev'
+
+export PUPPET_MODULES=/home/oddgeir/dev/source/aib/puppet
+
 function d-a () {docker exec -it $argv[1] bash;}
 
 function d-l () {
@@ -42,6 +46,13 @@ function deploy-no-build () {
         docker exec -ti aip bash -c "systemctl restart wildfly"
         echo $app was deployed to puppet container and wildfly was restarted
 }
+
+# Clarity
+alias cdca="cd ~/dev/source/aib/clarity-api"
+alias cdcu="cd ~/dev/source/aib/clarity-ui"
+makec() { cdca && (make DOCKER_PORT_MAPS="-p 11099:7999 -p 11080:80 -P" ${@:1} || true) && cd - &>/dev/null ; }
+mcica() { cdca && (mvn clean install && makec env || true) && cd - &>/dev/null ; }
+yarnbcu() { cdcu && (yarn build && makec env || true) && cd - &>/dev/null ; }
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -96,6 +107,9 @@ export PATH="$PATH:$HOME/dev/sdks/flutter/bin"
 
 # Add dart to the path
 export PATH="$PATH:$HOME/dev/sdks/flutter/bin/cache/dart-sdk/bin"
+
+# Add go to the path
+export PATH="$PATH:/usr/local/go/bin"
 
 # Set Android sdk
 #export ANDROID_HOME="/Users/oddgeir/Library/Android/sdk"
