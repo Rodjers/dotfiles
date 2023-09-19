@@ -22,7 +22,7 @@ alias r6log="docker exec -ti aip sh -c 'tail -n 100 -f /var/log/wildfly/aip-r6.l
 
 alias swapNexus='mv ~/.m2/settings.xml ~/.m2/tempSettings.xml && mv ~/.m2/settings.xml.backup ~/.m2/settings.xml && mv ~/.m2/tempSettings.xml ~/.m2/settings.xml.backup && printf "Now using: " && grep nexus ~/.m2/settings.xml -m 1 | cut -c18- | rev | cut -c7- | rev'
 
-export PUPPET_MODULES=/home/oddgeir/dev/source/aib/puppet
+export PUPPET_MODULES=/home/oddgeir/dev/src/aib/puppet
 
 function d-a () {docker exec -it $argv[1] bash;}
 
@@ -121,7 +121,7 @@ if [ -f '/Users/oddgeir/Development/google-cloud-sdk/path.zsh.inc' ]; then sourc
 if [ -f '/Users/oddgeir/Development/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/oddgeir/Development/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Add identities from keychain
-ssh-add -A
+ssh-add
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
