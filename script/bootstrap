@@ -80,7 +80,7 @@ install_dotfiles () {
   backup_all=false
   skip_all=false
 
-  for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink -not -path "*/config"`
+  for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink -not -path "*/config/*"`
   do
     dest="$HOME/`basename \"${source%.*}\"`"
 
