@@ -1,5 +1,8 @@
 execute pathogen#infect()
 syntax on
+let g:airline_theme = 'catppuccin_macchiato'
+set termguicolors
+colorscheme catppuccin_macchiato
 set shiftwidth=2
 set tabstop=2
 set expandtab
