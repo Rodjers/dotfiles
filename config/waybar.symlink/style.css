@@ -1,5 +1,7 @@
 @import "macchiato.css";
 
+
+
 * {
   font-family: FantasqueSansMono Nerd Font;
   font-size: 17px;
@@ -9,31 +11,31 @@
 #waybar {
   background: transparent;
   color: @text;
-  margin: 5px 5px;
+  margin: 0px 0px;
 }
 
 #workspaces {
-  border-radius: 1rem;
-  margin: 5px;
+  border-radius: 0rem;
+  margin: 0px;
   background-color: @surface0;
-  margin-left: 1rem;
+  margin-left: 0rem;
 
 }
 
 #workspaces button {
   color: @lavender;
-  border-radius: 1rem;
+  border-radius: 0rem;
   padding: 0.4rem;
 }
 
 #workspaces button.active {
   color: @sky;
-  border-radius: 1rem;
+  border-radius: 0rem;
 }
 
 #workspaces button:hover {
   color: @sapphire;
-  border-radius: 1rem;
+  border-radius: 0rem;
 }
 
 #custom-music,
@@ -48,12 +50,12 @@
 #custom-power {
   background-color: @surface0;
   padding: 0.5rem 1rem;
-  margin: 5px 0;
+  margin: 0px 0;
 }
 
 tooltip {
   background-color: rgba(91, 96, 120, 0.8);
-  border-radius: 1rem;
+  border-radius: 0rem;
 }
 
 #clock {
@@ -70,8 +72,8 @@ tooltip {
 
 #temperature {
   color: @green;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+  border-radius: 0px 0rem 0rem 0px;
+  margin-right: 0rem;
 }
 
 #temperature.critical {
@@ -80,23 +82,23 @@ tooltip {
 
 #wireplumber {
   color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+  border-radius: 0rem 0px 0px 0rem;
+  margin-left: 0rem;
 }
 
 #clock,
 #custom-music {
   color: @mauve;
-  border-radius: 1rem;
+  border-radius: 0rem;
 }
 
 #custom-lock {
-    border-radius: 1rem 0px 0px 1rem;
+    border-radius: 0rem 0px 0px 0rem;
     color: @lavender;
 }
 
 #custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
+    margin-right: 0rem;
+    border-radius: 0px 0rem 0rem 0px;
     color: @red;
 }
