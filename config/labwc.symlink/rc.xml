@@ -59,5 +59,6 @@ set of options with comments, see docs/rc.xml.all
       <windowRule identifier="*" serverDecoration="yes" />
       <windowRule identifier="google-chrome" serverDecoration="no"><action name="Maximize" /></windowRule>
       <windowRule identifier="kitty" serverDecoration="no"><action name="Maximize" /></windowRule>
+      <windowRule identifier="dev.zed.Zed" serverDecoration="no"><action name="Maximize" /></windowRule>
     </windowRules>
   </labwc_config>
