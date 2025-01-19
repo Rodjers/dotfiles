@@ -1,0 +1,3 @@
+sfwbar &
+swaybg -i ~/dotfiles/wallpapers/arch-black-4k.png &
+swaync &

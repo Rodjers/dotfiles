@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<!--
+This is a very simple config file with many options missing. For a complete
+set of options with comments, see docs/rc.xml.all
+-->
+
+<labwc_config>
+
+  <theme>
+    <name>catppuccin-macchiato</name>
+    <cornerRadius>8</cornerRadius>
+    <font name="sans" size="10" />
+  </theme>
+
+  <keyboard>
+    <default />
+    <!-- Use a different terminal emulator -->
+    <keybind key="W-space">
+      <action name="Execute" command="wofi --show drun" />
+    </keybind>
+    <keybind key="A-q">
+      <action name="Execute" command="kitty" />
+    </keybind>
+    <keybind key="W-b">
+      <action name="ToggleDecorations" />
+    </keybind>
+    <keybind key="W-m">
+      <action name="Maximize"/>
+    </keybind>
+    <keybind key="W-g">
+      <action name="Execute">
+        <command>labwc --reconfigure</command>
+      </action>
+    </keybind>
+    <keybind key="W-d">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
+    <!--
+      Remove a previously defined keybind
+      A shorter alternative is <keybind key="W-F4" />
+    -->
+      <keybind key="W-F4">
+        <action name="None" />
+      </keybind>
+    </keyboard>
+
+    <mouse>
+      <default />
+      <!-- Show a custom menu on desktop right click -->
+      <context name="Root">
+        <mousebind button="Right" action="Press">
+          <action name="ShowMenu" menu="some-custom-menu" />
+        </mousebind>
+      </context>
+    </mouse>
+
+    <windowRules>
+      <windowRule identifier="*" serverDecoration="yes" />
+      <windowRule identifier="google-chrome" serverDecoration="no"><action name="Maximize" /></windowRule>
+      <windowRule identifier="kitty" serverDecoration="no"><action name="Maximize" /></windowRule>
+    </windowRules>
+  </labwc_config>
