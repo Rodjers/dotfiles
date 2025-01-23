@@ -1,21 +1,32 @@
 @import "macchiato.css";
 
-
-
+/* Normalize */
 * {
   font-family: FantasqueSansMono Nerd Font;
   font-size: 17px;
   min-height: 0;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
 }
 
+button {
+  box-shadow: none;
+}
+
+button:hover {
+  box-shadow: none;
+}
+/* End Normalize */
+
 #waybar {
-  background: transparent;
+  border: none;
+  background-color: @surface0;
   color: @text;
   margin: 0px 0px;
 }
 
 #workspaces {
-  border-radius: 0rem;
   margin: 0px;
   background-color: @surface0;
   margin-left: 0rem;
@@ -53,6 +64,22 @@
   margin: 0px 0;
 }
 
+#taskbar button {
+  border: none;
+  color: @text;
+  background: @surface1;
+  margin-right: 8px;
+  padding: 0px 8px;
+}
+
+#taskbar button:hover {
+  background-color: @surface2;
+}
+
+#taskbar button.active {
+  background: @theme_fg_color;
+}
+
 tooltip {
   background-color: rgba(91, 96, 120, 0.8);
   border-radius: 0rem;
@@ -72,8 +99,6 @@ tooltip {
 
 #temperature {
   color: @green;
-  border-radius: 0px 0rem 0rem 0px;
-  margin-right: 0rem;
 }
 
 #temperature.critical {
@@ -82,23 +107,17 @@ tooltip {
 
 #wireplumber {
   color: @maroon;
-  border-radius: 0rem 0px 0px 0rem;
-  margin-left: 0rem;
 }
 
 #clock,
 #custom-music {
   color: @mauve;
-  border-radius: 0rem;
 }
 
 #custom-lock {
-    border-radius: 0rem 0px 0px 0rem;
     color: @lavender;
 }
 
 #custom-power {
-    margin-right: 0rem;
-    border-radius: 0px 0rem 0rem 0px;
     color: @red;
 }

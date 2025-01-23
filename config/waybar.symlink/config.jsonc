@@ -1,11 +1,11 @@
 {
   "layer": "top", // Waybar at top layer
-  "position": "top", // Waybar position (top|bottom|left|right)
+  "position": "bottom", // Waybar position (top|bottom|left|right)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["wireplumber", "network", "cpu", "memory", "temperature", "custom/lock", "custom/power"],
+    "modules-left": ["custom/power", "custom/lock", "wireplumber", "network", "cpu", "memory", "temperature"],
+    "modules-center": ["hyprland/workspaces", "wlr/taskbar"],
+    "modules-right": ["clock"],
     /*"custom/music": {
       "format": "  {}",
       "escape": true,
@@ -15,8 +15,16 @@
       "on-click": "playerctl play-pause",
       "max-length": 50
     },*/
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "all-outputs": true,
+      "icon-size": 24,
+      "icon-theme": "Gruvbox-Plus-Dark",
+      "on-click": "minimize-raise",
+      "on-click-middle": "close",
+    },
     "clock": {
-      "format": "{:%H:%M}  ",
+      "format": "{:%H:%M}",
       "format-alt": "{:%A, %B %d, %Y (%R)}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
@@ -65,8 +73,8 @@
       "format": "{id}",
     },
     "cpu": {
-     "format": "{usage}% ",
-     "tooltip": false
+      "format": "{usage}% ",
+      "tooltip": false
    },
    "memory": {
      "format": "{}% "
