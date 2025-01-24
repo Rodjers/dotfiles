@@ -14,5 +14,8 @@
     "mode": "system",
     "light": "One Light",
     "dark": "Catppuccin Macchiato (lavender)"
+  },
+  "vim": {
+    "toggle_relative_line_numbers": true
   }
 }
