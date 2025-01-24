@@ -33,6 +33,11 @@ set of options with comments, see docs/rc.xml.all
         <command>labwc --reconfigure</command>
       </action>
     </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>swaylock -f</command>
+      </action>
+    </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
