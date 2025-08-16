@@ -19,6 +19,9 @@ set of options with comments, see docs/rc.xml.all
     <keybind key="W-space">
       <action name="Execute" command="wofi --show drun" />
     </keybind>
+    <keybind key="W-r">
+      <action name="Execute" command="bemenu-run -l 20 -c -R 16 -W 0.5 --fn noto 24 --fb '#24273a' --ff '#cad3f5' --nb '#24273a' --nf '#cad3f5' --tb '#24273a' --hb '#24273a' --tf '#ed8796' --hf '#eed49f' --af '#cad3f5' --ab '#24273ar'" />
+    </keybind>
     <keybind key="A-q">
       <action name="Execute" command="kitty" />
     </keybind>
@@ -38,8 +41,22 @@ set of options with comments, see docs/rc.xml.all
         <command>swaylock -f</command>
       </action>
     </keybind>
-    <keybind key="W-d">
-      <action name="ToggleShowDesktop"/>
+    <keybind key="A-c">
+      <action name="Execute">
+        <command>gitle-calculator</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-left">
+      <action name="MoveToOutput" direction="left" wrap="yes"/>
+    </keybind>
+    <keybind key="W-S-right">
+      <action name="MoveToOutput" direction="right" wrap="yes"/>
+    </keybind>
+    <keybind key="W-S-h">
+      <action name="MoveToOutput" direction="left" wrap="yes"/>
+    </keybind>
+    <keybind key="W-S-l">
+      <action name="MoveToOutput" direction="right" wrap="yes"/>
     </keybind>
     <keybind key="XF86_AudioLowerVolume">
       <action name="Execute" command="pactl set-sink-volume @DEFAULT_SINK@ -5%" />
@@ -59,17 +76,28 @@ set of options with comments, see docs/rc.xml.all
     <mouse>
       <default />
       <!-- Show a custom menu on desktop right click -->
-      <context name="Root">
-        <mousebind button="Right" action="Press">
-          <action name="ShowMenu" menu="some-custom-menu" />
+      <context name="All">
+        <mousebind button="A-Right" action="Press">
+          <action name="ShowMenu" menu="root-menu" />
         </mousebind>
       </context>
     </mouse>
 
+    <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
+      <fields>
+        <field content="icon" width="5%" />
+        <field content="desktop_entry_name" width="30%" />
+        <field content="custom" format="%I" width="65%" />
+      </fields>
+    </windowSwitcher>
+
     <windowRules>
       <windowRule identifier="*" serverDecoration="yes" />
       <windowRule identifier="google-chrome" serverDecoration="no"><action name="Maximize" /></windowRule>
+      <windowRule identifier="brave-browser" serverDecoration="no"><action name="Maximize" /></windowRule>
+      <windowRule identifier="org.qutebrowser.qutebrowser" serverDecoration="no"><action name="Maximize" /></windowRule>
       <windowRule identifier="kitty" serverDecoration="no"><action name="Maximize" /></windowRule>
+      <windowRule identifier="com.mitchellh.ghostty" serverDecoration="no"><action name="Maximize" /></windowRule>
       <windowRule identifier="dev.zed.Zed" serverDecoration="no"><action name="Maximize" /></windowRule>
     </windowRules>
   </labwc_config>
