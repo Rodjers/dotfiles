@@ -92,8 +92,10 @@ set of options with comments, see docs/rc.xml.all
     </windowSwitcher>
 
     <windowRules>
-      <windowRule identifier="*" serverDecoration="yes" />
       <windowRule identifier="google-chrome" serverDecoration="no"><action name="Maximize" /></windowRule>
+      <windowRule identifier="jetbrains-webstorm" serverDecoration="no"><action name="Maximize" /></windowRule>
+      <windowRule identifier="jetbrains-idea" serverDecoration="no"><action name="Maximize" /></windowRule>
+      <windowRule identifier="jetbrains-clion" serverDecoration="no"><action name="Maximize" /></windowRule>
       <windowRule identifier="brave-browser" serverDecoration="no"><action name="Maximize" /></windowRule>
       <windowRule identifier="org.qutebrowser.qutebrowser" serverDecoration="no"><action name="Maximize" /></windowRule>
       <windowRule identifier="kitty" serverDecoration="no"><action name="Maximize" /></windowRule>
