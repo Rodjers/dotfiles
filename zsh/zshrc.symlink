@@ -90,6 +90,7 @@ source ~/.profile
 
 # Customize to your needs...
 #. ~/.zshlocal
+if [ -f ~/.zshlocal ]; then source ~/.zshlocal; fi
 
 export NPM_PACKAGES="/home/oddgeir/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
