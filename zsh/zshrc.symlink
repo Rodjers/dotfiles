@@ -14,47 +14,6 @@ ZSH_THEME="agnoster"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 function gitall () {git add .;git commit -m $1 ; git pull; git push;}
 
-alias ufprod="ssh docker@\$(aws ec2 describe-instances --filters \"Name=tag:Name, Values=prod-Manager\" | jq -r '.Reservations[0].Instances[0].PublicIpAddress') -A"
-alias ufstage="ssh docker@\$(aws ec2 describe-instances --filters \"Name=tag:Name, Values=stage-Manager\" | jq -r '.Reservations[0].Instances[0].PublicIpAddress') -A"
-
-alias serverlog="docker exec -ti aip sh -c 'tail -n 1000 -f /var/log/wildfly/server.log'"
-alias closerlog="docker exec -ti aip sh -c 'tail -n 1000 -f /var/log/wildfly/debug-aip-ecom.log'"
-alias r6log="docker exec -ti aip sh -c 'tail -n 100 -f /var/log/wildfly/aip-r6.log'"
-
-alias swapNexus='mv ~/.m2/settings.xml ~/.m2/tempSettings.xml && mv ~/.m2/settings.xml.backup ~/.m2/settings.xml && mv ~/.m2/tempSettings.xml ~/.m2/settings.xml.backup && printf "Now using: " && grep nexus ~/.m2/settings.xml -m 1 | cut -c18- | rev | cut -c7- | rev'
-
-export PUPPET_MODULES=/home/oddgeir/dev/src/aib/puppet
-
-function d-a () {docker exec -it $argv[1] bash;}
-
-function d-l () {
-  docker exec -it $argv[1] bash -c "tail -f -n 10000 $argv[2] | awk '!/WARN|ERROR|INFO|DEBUG/ {print \$0} /DEBUG/ {print \"\033[0;36m\" \$0 \"\033[0;39m\"} /INFO/ {print \"\033[0;32m\" \$0 \"\033[0;39m\"} /WARN/ {print \"\033[1;33m\" \$0 \"\033[0;39m\"} /ERROR/ {print \"\033[1;31m\" \$0 \"\033[0;39m\"}'"
-}
-
-function d-p () {docker exec -it $argv[1] bash -c "puppet apply $argv[2]"}
-
-function deploy () {
-        app=${PWD##*/}
-        mvn -P altibox clean install
-        docker cp target/$app.war aip:/opt/wildfly/standalone/deployments
-        docker exec -ti aip bash -c "systemctl restart wildfly"
-        echo $app was deployed to puppet container and wildfly was restarted
-}
-
-function deploy-no-build () {
-        app=${PWD##*/}
-        docker cp target/$app.war aip:/opt/wildfly/standalone/deployments
-        docker exec -ti aip bash -c "systemctl restart wildfly"
-        echo $app was deployed to puppet container and wildfly was restarted
-}
-
-# Clarity
-alias cdca="cd ~/dev/source/aib/clarity-api"
-alias cdcu="cd ~/dev/source/aib/clarity-ui"
-makec() { cdca && (make DOCKER_PORT_MAPS="-p 11099:7999 -p 11080:80 -P" ${@:1} || true) && cd - &>/dev/null ; }
-mcica() { cdca && (mvn clean install && makec env || true) && cd - &>/dev/null ; }
-yarnbcu() { cdcu && (yarn build && makec env || true) && cd - &>/dev/null ; }
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
