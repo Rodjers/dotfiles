@@ -1,4 +1,5 @@
 syntax on
+let mapleader = " "
 let g:airline_theme = 'catppuccin_macchiato'
 set termguicolors
 colorscheme catppuccin_macchiato
@@ -14,9 +15,12 @@ inoremap jk <ESC>
 nmap <C-j> o<ESC>k
 nmap <C-k> O<ESC>j
 nmap <C-i> gg=G''
+nmap <leader>pv :Ex<CR>
 map <C-h> :tabp<CR>
 map <C-l> :tabn<CR>
 map <Leader>q :bp\|bd #<CR>
+nmap <C-Tab> :bnext<CR>
+nmap <C-S-Tab> :bprevious<CR>
 filetype indent plugin on
 let g:airline_powerline_fonts = 1
 " Netrw
