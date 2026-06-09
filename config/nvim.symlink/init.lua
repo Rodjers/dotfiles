@@ -4,4 +4,4 @@ vim.cmd('source ~/.vimrc')
 
 require('lsp')
 require('autocomplete')
-
+require('plugins/telescope')
