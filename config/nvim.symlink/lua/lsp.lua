@@ -4,7 +4,6 @@ vim.pack.add({'https://github.com/neovim/nvim-lspconfig'})
 
 local lsps = { 
   'jdtls', 
-  'ruff', 
   'clangd', 
   'lua_ls', 
   'vimls' 
