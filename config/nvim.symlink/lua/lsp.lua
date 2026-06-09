@@ -1,10 +1,18 @@
-vim.pack.add({"https://github.com/williamboman/mason.nvim"})
-vim.pack.add({"https://github.com/mason-org/mason-lspconfig.nvim"})
-vim.pack.add({"https://github.com/neovim/nvim-lspconfig"})
+vim.pack.add({'https://github.com/williamboman/mason.nvim'})
+vim.pack.add({'https://github.com/mason-org/mason-lspconfig.nvim'})
+vim.pack.add({'https://github.com/neovim/nvim-lspconfig'})
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = { "jdtls", "ruff", "clangd", "lua_ls" },
+local lsps = { 
+  'jdtls', 
+  'ruff', 
+  'clangd', 
+  'lua_ls', 
+  'vimls' 
+}
+
+require('mason').setup()
+require('mason-lspconfig').setup({
+    ensure_installed = lsps,
 })
 
-vim.lsp.enable({ "jdtls", "ruff", "clangd", "lua_ls" })
+vim.lsp.enable(lsps)
