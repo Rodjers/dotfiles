@@ -19,6 +19,16 @@ button:hover {
 }
 /* End Normalize */
 
+#tray {
+  background-color: @surface0;
+  color: @text;
+}
+
+window.popup,
+menu {
+  background-color: @surface0; /* Dark background matching your setup */
+  color: @text;
+}
 #waybar {
   border: none;
   background-color: @surface0;

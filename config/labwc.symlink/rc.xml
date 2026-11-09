@@ -105,7 +105,8 @@ set of options with comments, see docs/rc.xml.all
       </context>
     </mouse>
 
-    <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
+    <windowSwitcher preview="yes" outlines="yes">
+      <osd show="yes" style="classic" />
       <fields>
         <field content="icon" width="5%" />
         <field content="desktop_entry_name" width="30%" />

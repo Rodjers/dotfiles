@@ -1,11 +1,13 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "bottom", // Waybar position (top|bottom|left|right)
+  "exclusive": true,
+  "layer-shell": true,
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["custom/power", "custom/lock", "wireplumber", "network", "cpu", "memory", "temperature"],
     "modules-center": ["hyprland/workspaces", "wlr/taskbar"],
-    "modules-right": ["clock"],
+    "modules-right": ["tray", "clock"],
     /*"custom/music": {
       "format": "  {}",
       "escape": true,
@@ -73,10 +75,12 @@
       "format": "{id}",
     },
     "cpu": {
+      "interval": 1,
       "format": "{usage}% ",
       "tooltip": false
-   },
-   "memory": {
+    },
+    "memory": {
+      "interval": 1,
      "format": "{}% "
    },
    "temperature": {
@@ -89,6 +93,7 @@
    },
    "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "interval": 1,
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-alt": "Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
         "tooltip-format": "{ifname} via {gwaddr} ",
